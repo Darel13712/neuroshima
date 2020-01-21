@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<style>
+    body {
+        background-image: url('background.png');
+        background-size: contain;
+        /*margin-right: -250px;*/
+    }
+
+    .with-bg-size {
+        background-image: url('artwork.jpg');
+        width: 900px;
+        height: 200px;
+        background-position: 0px 850px;
+        /* Make the background image cover the area of the <div>, and clip the excess */
+        background-size: cover;
+    }
+
+    @font-face {
+        font-family: neuroshima;
+        src: url('../../fonts/sf_comic_script/SF Comic Script Extended.ttf');
+    }
+
+    @font-face {
+        font-family: ocr;
+        src: url('../../fonts/ocr-a-bt/OCR-A BT.ttf');
+    }
+
+    .center {
+        margin: auto;
+        margin-top: -20px;
+        width: 50%;
+        padding: 60px;
+        border: aquamarine;
+        border-width: 2px;
+        /*border-style: solid;*/
+        min-width: 480px;
+        /*background-color: rgba(161, 87, 27, 0.3);*/
+
+    }
+
+    .tile {
+        width: 100px
+    }
+
+    .mini {
+        width: 55px
+    }
+
+    .left {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 0px
+    }
+
+    .description {
+        overflow: hidden;
+        margin: 0px;
+        vertical-align: center;
+    }
+
+    .detail {
+        margin: 8px;
+        overflow: hidden;
+    }
+
+    .details {
+        margin-left:120px;
+        margin-top: 20px;
+        overflow: hidden;
+        float: left;
+    }
+
+    .marker {
+        width: 30px;
+        margin-right: 13px;
+        margin-left: 13px;
+        margin-bottom: 8px
+    }
+
+    .show {
+        border-color: aqua;
+        border-width: 3px;
+        border-style: ridge;
+    }
+
+    .tile_name{
+        text-align: center;
+        font-family: ocr;
+        margin-top:40px;
+    }
+
+
+</style>
+<body>
+<div class="center">
+
+    <h1 style="font-family: neuroshima; font-size: 60px; text-align: center;">Sand Runners</h1>
+    <h2 class="tile_name">HQ</h2>
+    <div class="left">
+        <img src="tiles/hq.png" class="tile" style="margin-right=0px">
+        <img src="tiles/hq_back.png" class="tile">
+    </div>
+
+    <p class="description">
+        HQ is double-sided, which allows it to eliminate a single, slower threat before it attacks.
+        <br>
+        Player can use Adaptation once per turn to flip over and rotate this tile,
+        rotation can’t happen without flipping the tile to the other side.
+    </p>
+
+    <h2 class="tile_name">Sandstorm x5</h2>
+    <img src="tiles/sandstorm.png" class="tile left">
+    <p class="description">
+        <br>
+        Place this tile on any hex on the board (even with a tile on it belonging to any player,
+        including HQ tiles), and a Battle begins.<br>
+        A hex with Sandstorm on top of it is excluded from this Battle.
+        Meaning, that if a tile is under it, it cannot attack and cannot be attacked,
+        it cannot perform any actions, and doesn’t provide any Features.<br>
+        Sandstorm also blocks line of sight, meaning any ranged attacks
+        (even the ones with Mortar, Sharpshooter, Gauss, Rocket Launcher or Shotgun)
+        cannot travel beyond it.<br>
+        After the Battle, the player’s turn ends, and Sandstorm is removed from the board.
+        Not usable if any player drew their last tile.
+    </p>
+
+    <div class="details" style="margin-bottom: 30px">
+
+        <div class="detail">
+            <div class="left">
+                <img src="tiles/quicksands.png" class="mini">
+                <img src="../sharrash/tiles/explosives.png" class="mini">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on a hex with Quicksands or Explosives,
+                the effects of those tiles don’t trigger during this Battle.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../steel_police/tiles/hq.png" class="mini">
+                <img src="../steel_police/steel%20net.png" class="marker">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on the Steel Police Headquarters,
+                the Steel net stops working immediately and returns to the player.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../mephisto/tiles/hq.png" class="mini">
+                <img src="../mephisto/tiles/right%20quill.png" class="mini">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on the Mephisto Headquarters, the Quill won’t work.
+                After the Battle, markers are removed from the board and return to the player’s hand.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../death_breath/tiles/hq.png" class="mini">
+                <img src="../death_breath/tiles/revival.png" class="mini">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on the Death Breath Headquarters,
+                the Revival Feature won’t work during this Battle.
+                However, all killed units are placed in the Zombie Pool as usual.
+            </p>
+        </div>
+
+
+        <div class="detail">
+            <div class="left">
+                <img src="../neojungle/tiles/hq.png" class="mini">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on the Neojungle Headquarters,
+                the Motherland stops working entirely.
+                However, if it’s placed on any other tile within the Motherland,
+                it doesn’t break any Motherland connection.
+                The affected tile still connects any units adjacent to it,
+                but any Modules connected to it are treated as not connected to anything.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../neojungle/venom.png" class="marker">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on a tile with a Venom marker on it,
+                the Venom doesn’t inflict a Wound during this Battle.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../sharrash/tiles/hole.png" class="mini">
+            </div>
+            <p class="description">
+                If Sandstorm is placed on a hex with a Hole,
+                Hole’s effect is ignored at the end of this Battle.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+<!--                <img src="../sharrash/tiles/hole.png" class="mini">-->
+            </div>
+            <p class="description">
+                If Sandstorm is placed on a hex with markers,
+                they normally return to the available pool after the end of this Battle.
+                (f.ex.: Incubator, Quill, Ranged net)
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+<!--                                <img src="../sharrash/tiles/hole.png" class="mini">-->
+            </div>
+            <p class="description">
+                Sandstorm blocks the connection of long distance modules.
+            </p>
+        </div>
+
+    </div>
+
+    <h2 class="tile_name" style="margin-top:100px">Quicksands x2</h2>
+    <img src="tiles/quicksands.png" class="tile left">
+    <p class="description">
+        Foundation tile.
+        <br>
+        If there’s an enemy unit on a Quicksands tile at the beginning of the Battle,
+        both the unit (except HQ) and the Quicksands are automatically destroyed and removed from a board.
+        <br>
+        If there’s no tile on it when Sandstorm is played (but before the Battle starts),
+        Quicksands may be moved to an adjacent unoccupied hex before you place a Sandstorm tile on the board.
+        <br>
+        For convenience, a Quicksands marker can be used to mark any tile
+        standing on the Quick- sands (just to remember about the Quicksands underneath).
+        <br>
+        Quicksands don’t work on Sand Runners units;
+        which is not only a great defense mechanism for their HQ,
+        but is also a way to secure a spot next to their opponent’s HQ for an attack.
+    </p>
+    <div class="details" style="margin-bottom: 30px">
+        <div class="detail">
+            <div class="left">
+                <img src="../medic.png" class="mini">
+            </div>
+            <p class="description">
+                Medics can absorb the damage done by Quicksands in the usual way.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../sharrash/tiles/explosives.png"  class="mini">
+            </div>
+            <p class="description">
+                Explosives activates at the same moment as Quicksands.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../dancer/tiles/object%20blue.png" class="mini">
+                <img src="../dancer/tiles/object%20red.png" class="mini">
+                <img src="../dancer/tiles/object%20yellow.png" class="mini">
+            </div>
+            <p class="description">
+                If the Dancer Object is on the Quicksands tile during the Battle,
+                it takes a single Wound at the start of the Battle and the Quicksands are removed afterwards.
+            </p>
+        </div>
+
+    </div>
+
+    <div style="overflow: ; height: 100px; margin-bottom: 20px"></div>
+    <h2 class="tile_name">Warriors with module features</h2>
+    <div style="overflow: hidden">
+        <img src="tiles/optimist.png" class="tile left">
+        <img src="tiles/santa.png" class="tile left">
+        <img src="tiles/lu.png" class="tile left">
+    </div>
+    <p class="description"></p>
+    <div class="details" style="margin-bottom: 30px">
+        <div class="detail">
+            <div class="left">
+                <img src="../outpost/tiles/scoper.png" class="mini">
+            </div>
+        <p class="description">
+            When Scoper is connected to a Warrior with the Module Feature,
+            the Module Features give bonuses to the Outpost’s units which are connected,
+            but the Warrior still attacks as usual.
+        </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../new_york/tiles/spy-shooter.png" class="mini">
+                <img src="../new_york/tiles/spy-cleaner.png" class="mini">
+            </div>
+            <p class="description">
+                Units with the Spy Feature can link themselves to Modules provided by Warriors.
+                If a Warrior with the Medic module is linked to several units (including a Spy)
+                which all take damage simultaneously,
+                then the Warrior’s owner decides which linked unit will be healed as usual.
+            </p>
+        </div>
+
+        <div class="detail">
+            <div class="left">
+                <img src="../sand_runners/tiles/santa.png" class="mini">
+                <img src="../sand_runners/tiles/lu.png" class="mini">
+            </div>
+            <p class="description">
+                If the Field Medic saves another unit in Initiative 0,
+                it still performs its attack.
+                Field Medic cannot save a unit with the Medic Feature
+                if it takes Wounds and is destroyed during the same Initiative.
+            </p>
+        </div>
+
+    </div>
+
+    <h2 class="tile_name">Warriors x(1, 3, 2, 2)</h2>
+    <div style="overflow:hidden;">
+        <img src="tiles/trigger.png" class="tile left">
+        <img src="tiles/hammer.png" class="tile left">
+        <img src="tiles/secateur.png" class="tile left">
+        <img src="tiles/vulture.png" class="tile left">
+    </div>
+
+    <h2 class="tile_name">Modules x(2, 1, 2, 2, 2)</h2>
+    <div style="overflow:hidden;">
+        <img src="tiles/short_module.png" class="tile left">
+        <img src="tiles/long_module.png" class="tile left">
+        <img src="tiles/outpost_module.png" class="tile left">
+        <img src="tiles/move_module.png" class="tile left">
+        <img src="tiles/-initiative_module.png" class="tile left">
+    </div>
+
+    <h2 class="tile_name">Actions x(3, 2)</h2>
+    <div style="overflow:hidden;">
+        <img src="tiles/move.png" class="tile left">
+        <img src="tiles/push.png" class="tile left">
+    </div>
+
+</div>
+
+<!--<div class="with-bg-size"></div>-->
+<img style="margin:auto; display: block" src="artwork.jpg" width="800">
+</body>
+</html>
+
